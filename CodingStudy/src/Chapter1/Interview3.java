@@ -17,12 +17,63 @@ public class Interview3 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		String str = sc.nextLine();
+		String words = sc.nextLine();
 		int length = sc.nextInt();
 		
-		System.out.println(str +  length);
+		StringBuilder builder = new StringBuilder();
+		Interview3 interview = new Interview3();
 		
+		char[] str = words.toCharArray();
 		
+		interview.changeSpace(str, builder);
+		interview.changeSpace2(str, length);
+		
+	
+	}
+	
+	// Using StringBuilder
+	// This solution don't use length. We better used all terms. 
+	
+	public void changeSpace(char[] str, StringBuilder builder) {
+		
+		for(int i=0; i < str.length ; i++) {
+			if(str[i] != ' ') {
+				builder.append(str[i]);
+			} else {
+				builder.append("%20");
+			}
+		}
+		System.out.println(builder);
+	}
+	
+	
+	// Book's solution.
+	// It read word from back.
+	
+	public void changeSpace2(char[] str, int length) {
+		int spaceCount=0;
+		for(int i=0 ; i < length ; i++) {
+			if(str[i] == ' ') {
+				spaceCount++;
+			}
+		}
+		int index = length + spaceCount * 2;
+		
+		char[] result = new char[index];
+		
+		for(int i= length-1 ; i >= 0 ; i--) {
+			if(str[i] == ' ') {
+				result[index-1] = '0';
+				result[index-2] = '2';
+				result[index-3] = '%';
+				index= index -3;
+			} else {
+				result[index-1] = str[i];
+				index--;
+			}
+		}
+		
+		System.out.println(result);
 		
 	}
 

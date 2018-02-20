@@ -1,31 +1,42 @@
-package Chapter3.StackQueue;
+package Chapter3.Question3;
 
 import java.util.EmptyStackException;
 
-public class MyStack<T> {
-	private static class StackNode<T> {
-		private T data;
-		private StackNode<T> next;
-		public StackNode(T data) {
+public class MyStack {
+	private static class StackNode {
+		private int data;
+		private StackNode next;
+		public StackNode(int data) {
 			this.data = data;
 		}
 	}
+	// capacity max = 5
 	
-	private StackNode<T> top;
-	public T pop() {
+	private int capacity;
+	private StackNode top;
+	
+	public int pop() {
 		if(top == null) throw new EmptyStackException();
-		T item = top.data;
+		int item = top.data;
 		top = top.next;
 		return item;
 	}
 	
-	public void push(T item) {
-		StackNode<T> t = new StackNode<T>(item);
-		t.next = top;
-		top = t;
+	public void push(int item) {
+		if(capacity == 5) {
+			System.out.println("Stack Overflow");
+			return;
+		} else {
+			StackNode t = new StackNode(item);
+			t.next = top;
+			top = t;
+			capacity++;
+		}
+		
+		
 	}
 	
-	public T peek() {
+	public int peek() {
 		if(top==null) throw new EmptyStackException();
 		return top.data;
 	}
@@ -33,5 +44,18 @@ public class MyStack<T> {
 	public boolean isEmpty() {
 		return top==null;
 	}
+	
+	public boolean isFull() {
+		return capacity==5 ? true : false;
+	}
+	
+	public void print() {
+		StackNode tmp = top;
+		while(tmp!=null ) {
+			System.out.println(tmp.data);
+			tmp = tmp.next;
+		}
+	}
+	
 
 }

@@ -31,8 +31,8 @@ public class Interview1 {
 		set.stackCountPrint();
 		
 		System.out.println("=================");
-		System.out.println(set.popAt(5));
-		System.out.println(set.popAt(5));
+		set.popAt(4);
+//		set.popAt(5);
 		set.print();
 		
 		

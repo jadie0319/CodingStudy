@@ -2,7 +2,7 @@ package Chapter3.Question3;
 
 import java.util.EmptyStackException;
 
-import Chapter3.StackQueue.MyStack;
+import Chapter3.Question3.MyStack;
 import CodeLibrary.LinkedListNode;
 
 public class SetOfStacks extends MyStack {
@@ -28,7 +28,7 @@ public class SetOfStacks extends MyStack {
 			newStack.push(value);
 			LinkedListNode<MyStack> newNode = new LinkedListNode<MyStack>(newStack);
 			stackCount++;
-			newNode.next = node;
+			newNode.setNext(node);
 			node = newNode;
 			
 		} else {
@@ -77,8 +77,8 @@ public class SetOfStacks extends MyStack {
 		System.out.println(stackCount);
 	}
 	
-	//빈 스택 채워주는것 없이 pop만 수행하는 메소드.
-	public int popAt(int index) {
+
+	public void popAt(int index) {
 		int count = stackCount;
 		LinkedListNode<MyStack> tmp = node;
 		
@@ -89,10 +89,21 @@ public class SetOfStacks extends MyStack {
 				break;
 			}
 		}
+		tmp.data.pop();
+		// 여기까지가 스택 채워주는것 없이 pop만 수행하는 메소드.
+
+		// 다음 스택의 맨 위에 접시를 현재의 접시무더기 위로 올려
+		// 현재 접시무더기가 full로 되게 만든다.
+		while(!tmp.data.isFull() && tmp.prev != null) {
+			tmp.data.push(tmp.prev.data.pop());
+			tmp = tmp.prev;
+			
+		}
 		
 		
 		
-		return tmp.data.pop();
+		
+		//return tmp.data.pop();
 	}
 
 }

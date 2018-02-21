@@ -1,4 +1,4 @@
-package Chapter3.StackQueue;
+package Chapter3.Question4;
 
 import java.util.EmptyStackException;
 
@@ -19,6 +19,7 @@ public class MyStack {
 		if(top == null) throw new EmptyStackException();
 		int item = top.data;
 		top = top.next;
+		capacity--;
 		return item;
 	}
 	
@@ -52,7 +53,7 @@ public class MyStack {
 	public void print() {
 		StackNode tmp = top;
 		while(tmp!=null ) {
-			System.out.println(tmp.data);
+			System.out.print(tmp.data + " ");
 			tmp = tmp.next;
 		}
 	}

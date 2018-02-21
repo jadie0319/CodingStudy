@@ -2,6 +2,7 @@ package Chapter3.Question3;
 
 import java.util.EmptyStackException;
 
+import Chapter3.StackQueue.MyStack;
 import CodeLibrary.LinkedListNode;
 
 public class SetOfStacks extends MyStack {

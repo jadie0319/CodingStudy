@@ -1,5 +1,7 @@
 package CodeLibrary;
 
+import Chapter4.RefGraph.TreeNode;
+
 public class AssortedMethods {
 
 	public static int randomInt(int n) {
@@ -188,6 +190,39 @@ public class AssortedMethods {
 	public static String[] getLongTextBlobAsStringList() {
 		return getLongTextBlob().split(" ");
 	}
+	
+	
+	/* Creates tree by mapping the array left to right, top to bottom. */
+	public static TreeNode createTreeFromArray(int[] array) {
+		if (array.length > 0) {
+			TreeNode root = new TreeNode(array[0]);
+			java.util.Queue<TreeNode> queue = new java.util.LinkedList<TreeNode>();
+			queue.add(root);
+			boolean done = false;
+			int i = 1;
+			while (!done) {
+				TreeNode r = (TreeNode) queue.element();
+				if (r.left == null) {
+					r.left = new TreeNode(array[i]);
+					i++;
+					queue.add(r.left);
+				} else if (r.right == null) {
+					r.right = new TreeNode(array[i]);
+					i++;
+					queue.add(r.right);
+				} else {
+					queue.remove();
+				}
+				if (i == array.length) {
+					done = true;
+				}
+			}
+			return root;
+		} else {
+			return null;
+		}
+	}
+
 
 	
 	

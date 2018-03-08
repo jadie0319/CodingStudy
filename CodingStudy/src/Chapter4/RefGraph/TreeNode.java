@@ -92,6 +92,17 @@ public class TreeNode {
 		BTreePrinter.printNode(this);
 	}
 	
+	public TreeNode find(int d) {
+		if (d == data) {
+			return this;
+		} else if (d <= data) {
+			return left != null ? left.find(d) : null;
+		} else if (d > data) {
+			return right != null ? right.find(d) : null;
+		}
+		return null;
+	}
+	
 	
 	
 	

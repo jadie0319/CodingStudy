@@ -92,6 +92,7 @@ public class TreeNode {
 		BTreePrinter.printNode(this);
 	}
 	
+	// 이진탐색트리에서만 적용.
 	public TreeNode find(int d) {
 		if (d == data) {
 			return this;

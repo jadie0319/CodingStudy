@@ -1,6 +1,7 @@
 package Chapter4.Question10;
 
-
+import Chapter4.RefGraph.GraphAssortedMethods;
+import Chapter4.RefGraph.TreeNode;
 
 /*
  * 4-10 하위트리확인 : 두 개의 커다란 이진 트리 T1과 T2가 있다고 하자. T1이
@@ -12,8 +13,9 @@ package Chapter4.Question10;
 public class Question {
 
 	public static void main(String[] args) {
-		System.out.println();
-		int ab = 3;
+		int array[] = {1,2,3,4,5,6,7,8,9,10};
+		TreeNode root = GraphAssortedMethods.createTreeNodeFromArray(array);
+		root.print();
 
 	}
 

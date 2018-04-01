@@ -11,11 +11,58 @@ import Chapter4.RefGraph.TreeNode;
  */
 
 public class Question {
+	
+	public static boolean matchTree(TreeNode node, TreeNode node2) {
+		if(node == null && node2 == null) {
+			return true; // nothing left in the subtree
+		} else if(node == null || node2 == null) {
+			return false;
+		} else if(node.data != node2.data) {
+			return false;
+		} else {
+			return matchTree(node.left, node2.left) && matchTree(node.right, node2.right);
+		}
+		
+		
+	}
 
+	public static boolean subTree(TreeNode node, TreeNode node2) {
+		if(node == null) {
+			return false;
+		} else if(node.data == node2.data && matchTree(node,node2)) {
+			return true;
+		}
+		
+		return subTree(node.left,node2) || subTree(node.right,node2);
+	}
+	
+	
+	public static boolean checkSubtree(TreeNode node,TreeNode node2) {
+
+		if(node2 == null) {
+			return true;
+		}
+		
+		return subTree(node,node2);
+	}
+	
 	public static void main(String[] args) {
 		int array[] = {1,2,3,4,5,6,7,8,9,10};
 		TreeNode root = GraphAssortedMethods.createTreeNodeFromArray(array);
+		
+		int array2[] = {5,10};
+		TreeNode root2 = GraphAssortedMethods.createTreeNodeFromArray(array2);
+		
 		root.print();
+		root2.print();
+		
+		if(checkSubtree(root,root2)) {
+			System.out.println("t2 is a subtree of t1");
+		} else {
+			System.out.println("t2 is not a subtree of t1");
+		}
+		
+		
 
 	}
 

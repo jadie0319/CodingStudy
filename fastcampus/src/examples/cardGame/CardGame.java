@@ -26,7 +26,7 @@ public class CardGame {
 				player.addCard(dealer.getCard());
 			}
 		}
-		
+			
 		dealer.result();
 		
 		System.out.println("================   승자 : " + dealer.winner().getName());

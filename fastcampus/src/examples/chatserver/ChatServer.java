@@ -14,6 +14,20 @@ public class ChatServer extends Thread {
 		this.port = port;
 		socketSet = new CopyOnWriteArraySet();
 	}
+
+	public void addPrintWriter(PrintWriter out) {
+		socketSet.add(out);
+	}
+	public void removePrintWriter(PrintWriter out) {
+		socketSet.remove(out);
+	}
+	public void broadcast(String msg) {
+		for(PrintWriter out : socketSet) {    // try 안했는데 괜찮나????
+			out.println(msg);
+			out.flush();
+		}
+	}
+
 	@Override
 	public void run() {
 		// chat server do

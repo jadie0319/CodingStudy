@@ -25,11 +25,18 @@ public class SocketHandler extends Thread {
 		try {
 			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+
+			this.name = in.readLine();
+			chatServer.broadcast(this.name + " 님이 입장하셨습니다.");
+
+			chatServer.addPrintWriter(out);
+
 			
 			String line = null;
 			while((line = in.readLine()) != null) {
-				out.println(line);
-				out.flush();
+//				out.println(line);
+//				out.flush();
+				chatServer.broadcast(this.name + " : " + line);
 			}
 			
 			
@@ -37,6 +44,9 @@ public class SocketHandler extends Thread {
 		}catch(Exception ex) {
 			System.out.println("Chat Handler close");
 		}finally {
+			chatServer.removePrintWriter(out);
+			chatServer.broadcast(this.name + "  님이 퇴장하셨습니다.");
+			System.out.println("Chat Handler finally");
 			try { in.close();} catch(Exception e) {}
 			try { out.close();} catch(Exception e) {}
 			

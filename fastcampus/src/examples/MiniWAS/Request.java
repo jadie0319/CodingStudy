@@ -45,7 +45,7 @@ public class Request {
 
 
         }catch(Exception ex) {
-            throw new RuntimeException();
+            throw new RuntimeException("잘못된 요청 : " + ex.toString());
         }
 
 

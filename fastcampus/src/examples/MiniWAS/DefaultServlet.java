@@ -15,7 +15,13 @@ public class DefaultServlet {
             webpath = webpath + "index.html";
         }
 
-        String path = "/Users/choijaeyong/wasfolder" + webpath;
+//        String path = "/Users/choijaeyong/wasfolder" + webpath;
+//        String path = "/tmp/www" + webpath;
+
+        MiniWasConfigurationManager wcm = MiniWasConfigurationManager.getInstance();
+        MiniWasConfiguration miniWasConfiguration = wcm.getMiniWasConfiguration("/tmp/m.json");
+        String path = miniWasConfiguration.getStaticDir() + webpath;
+        System.out.println("path = "+path);
 
         File file = new File(path);
         res.setContentLength(file.length());

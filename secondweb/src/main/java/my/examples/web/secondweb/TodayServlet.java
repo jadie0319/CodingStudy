@@ -20,4 +20,14 @@ public class TodayServlet extends HttpServlet {
         out.println("today : " + today.toString());
         out.close();
     }
+
+
+    public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        if(req.getMethod().equals("GET")) {
+            doGet(req,res);
+
+        }
+    }
+
+
 }

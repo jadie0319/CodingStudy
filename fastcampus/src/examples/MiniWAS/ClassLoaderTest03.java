@@ -67,7 +67,7 @@ public class MyData{
 
 컴파일이 되면 현재경로에 my라는 패키지가 생성되고 my디렉토리에 MyData.java가 생성된다.
 
-3. classpath에 /tmp/classes 가 추가되어야 MyData.java 를 인식.
+3. classpath에 /tmp/classes 가 추가되어야 MyDat14a.java 를 인식.
 
 
 

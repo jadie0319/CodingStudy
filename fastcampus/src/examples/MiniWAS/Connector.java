@@ -21,12 +21,12 @@ public class Connector {
             // 여기에서 while 을 해주면 사진도 불러오고.
             // while 없으면 그냥 html 문서만 읽고 사진은 안불러온다.
 
-//            while(true) {
-//                Socket socket = serverSocket.accept();
-//                SocketHandler handler = new SocketHandler(socket);
-//                handler.start();
-//
-//            }
+            while(true) {
+                Socket socket = serverSocket.accept();
+                SocketHandler handler = new SocketHandler(socket);
+                handler.start();
+
+            }
 
 
             // 1 번만 호출하면 이미지를 불러오지 못한다. 왤까???
@@ -35,9 +35,9 @@ public class Connector {
 //                SocketHandler handler = new SocketHandler(socket);
 //                handler.start();
 //            }
-            Socket socket = serverSocket.accept();
-            SocketHandler handler = new SocketHandler(socket);
-            handler.start();
+//            Socket socket = serverSocket.accept();
+//            SocketHandler handler = new SocketHandler(socket);
+//            handler.start();
 
 
 

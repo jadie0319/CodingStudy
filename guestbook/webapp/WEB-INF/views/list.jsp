@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: choijaeyong
@@ -13,15 +14,20 @@
 <body>
 
     <h1>list</h1>
-    <a href="/guestbook/login">관리자 로그인</a>
-    <a href="/guestbook/logout">관리자 로그아웃</a>
+    <c:if test="${sessionScope.admin != 'true'}">
+        <a href="/guestbook/login">관리자 로그인</a>
+    </c:if>
+    <c:if test="${sessionScope.admin == 'true'}">
+        <a href="/guestbook/logout">관리자 로그아웃</a>
+    </c:if>
+
     <br><br>
 
-
+    방명록 건수 : ${ guestbookSize } <br>
 
 
     <h1> List </h1>
-    <form method="post" action="/guestbook/write">
+    <form method="post" accept-charset="UTF-8"   action="/guestbook/write">
         이름 : <input type="text" name="name"><br>
         내용 : <br>
         <textarea name="content" id="content" cols="30" rows="10"></textarea>
@@ -30,12 +36,15 @@
 
 
     <!-- 방명록 목록을 출력한다. -->
-    이름 : 홍길동 <br>
-    내용 : 자바가 ... <br>
-    <a href="/guestbook/delete?id=1">삭제</a><br><br>
-    이름 : 고길동 <br>
-    내용 : 하하  ... <br>
-    <a href="/guestbook/delete?id=2">삭제</a><br>
+    <c:forEach items="${requestScope.guestbookList}" var = "guestbook">
+        이름 : ${guestbook.name} <br>
+        내용 : ${guestbook.content} <br>
+        <c:if test="${sessionScope.admin == 'true'}">
+            <a href="/guestbook/delete?id=${guestbook.id}">삭제</a><br><br>
+        </c:if>
+
+    </c:forEach>
+
 
 </body>
 </html>

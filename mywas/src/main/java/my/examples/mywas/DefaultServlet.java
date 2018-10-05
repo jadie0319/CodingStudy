@@ -1,4 +1,4 @@
-package examples.MiniWAS;
+package main.java.my.examples.mywas;
 
 import java.io.File;
 import java.io.FileInputStream;

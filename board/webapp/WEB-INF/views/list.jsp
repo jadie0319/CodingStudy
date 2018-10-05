@@ -21,6 +21,8 @@
 
 <h5>Hello Board List</h5>
 
+<button type="submit" class="btn btn-default" ><a href="/board/write">Write</a></button>
+
 <div class="btn-group" role="group" aria-label="...">
     <button type="button" class="btn btn-default">Left</button>
     <button type="button" class="btn btn-default">Middle</button>

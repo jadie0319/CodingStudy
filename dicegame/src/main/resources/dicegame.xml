@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dice" class="examples.dice.Dice">
+        <constructor-arg value="6"></constructor-arg>
+    </bean>
+
+
+    <!-- player 에 dice를 넣어주는것!. setter Injection-->
+    <bean id="choi" class="examples.dice.Player">
+        <property name="dice" ref="dice"/>
+        <property name="name" value="choi"/>
+    </bean>
+
+    <bean id="jung" class="examples.dice.Player">
+        <property name="dice" ref="dice"/>
+        <property name="name" value="jung"/>
+    </bean>
+
+    <bean id="jang" class="examples.dice.Player">
+        <property name="dice" ref="dice"/>
+        <property name="name" value="jang"/>
+    </bean>
+
+
+    <bean id="game" class="examples.dice.Game">
+        <property name="playerList">
+            <list>
+                <ref bean="choi"/>
+                <ref bean="jung"/>
+                <ref bean="jang"/>
+            </list>
+        </property>
+    </bean>
+
+
+
+
+</beans>

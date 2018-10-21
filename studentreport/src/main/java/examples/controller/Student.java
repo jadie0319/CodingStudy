@@ -41,4 +41,12 @@ public class Student {
     public void setMathScore(int mathScore) {
         this.mathScore = mathScore;
     }
+
+    @Override
+    public String toString() {
+        return "Student : name = " + this.name + '\n' +
+                " , korean = " + this.koreanScore + '\n' +
+                " , english = " + this.englishScore + '\n' +
+                " , math = " + this.mathScore;
+    }
 }

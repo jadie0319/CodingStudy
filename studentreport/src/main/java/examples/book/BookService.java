@@ -3,8 +3,9 @@ package examples.book;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class BookService {
     // 수업시간에 한 내용.
 
@@ -13,7 +14,7 @@ public class BookService {
 
 //    public BookService(BookDao bookDao) {
 //        this.bookDao = bookDao;
-//        System.out.println("BookDao()");
+//        System.out.println("BookService 생정자 BookDao()");
 //    }
 
     public void service() {

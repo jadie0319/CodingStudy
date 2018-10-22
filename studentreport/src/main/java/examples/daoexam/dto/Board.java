@@ -1,4 +1,4 @@
-package daoexam.dto;
+package examples.daoexam.dto;
 
 import java.util.Date;
 
@@ -10,6 +10,7 @@ public class Board {
     private String content;
     private Date regdate;
     private int readCount;
+
     public Long getId() {
         return id;
     }
@@ -47,6 +48,8 @@ public class Board {
     public void setReadCount(int readCount) {
         this.readCount = readCount;
     }
+
+
     @Override
     public String toString() {
         return "Board{" +
@@ -61,3 +64,17 @@ public class Board {
 
 
 }
+
+
+/*
+create table board (
+    id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    title varchar(255) not null,
+    name varchar(255) NOT NULL,
+    content text,
+    regdate datetime,
+    read_count int,
+    primary key(id)
+);
+
+ */

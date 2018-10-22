@@ -1,25 +1,26 @@
-package daoexam.main;
+package examples.daoexam.main;
 
-import daoexam.config.ApplicationConfig;
-import daoexam.dao.RoleDao;
-import daoexam.dto.Role;
+import examples.daoexam.config.ApplicationConfig;
+import examples.daoexam.dao.RoleDao;
+import examples.daoexam.dto.Role;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class InsertTest {
+import java.util.List;
 
+public class SelectAllTest {
 
     public static void main(String[] args) throws Exception {
         ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 
         RoleDao roleDao =ac.getBean(RoleDao.class);
-        Role role = new Role();
-        role.setRoleId(500);
-        role.setDescription("CTO");
+        List<Role> list = roleDao.selectAll();
 
-        int count = roleDao.insert(role);
-
-        System.out.println(count + "건 저장하였습니다.");
+        for(Role role: list) {
+            System.out.println(role);
+        }
     }
+
+
 
 }

@@ -1,6 +1,6 @@
-package daoexam.main;
+package examples.daoexam.main;
 
-import daoexam.config.ApplicationConfig;
+import examples.daoexam.config.ApplicationConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

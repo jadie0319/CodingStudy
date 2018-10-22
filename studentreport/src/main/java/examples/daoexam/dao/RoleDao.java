@@ -1,6 +1,6 @@
-package daoexam.dao;
+package examples.daoexam.dao;
 
-import daoexam.dto.Role;
+import examples.daoexam.dto.Role;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
@@ -20,6 +20,7 @@ public class RoleDao {
     private NamedParameterJdbcTemplate jdbc;
     private SimpleJdbcInsert insertAction;
     private RowMapper<Role> rowMapper = BeanPropertyRowMapper.newInstance(Role.class);
+
     public RoleDao(DataSource dataSource) {
         this.jdbc = new NamedParameterJdbcTemplate(dataSource);
         this.insertAction = new SimpleJdbcInsert(dataSource)
@@ -30,8 +31,11 @@ public class RoleDao {
     }
 
     public List<Role> selectAll() {
+
         return jdbc.query(RoleDaoSqls.SELECT_ALL, Collections.emptyMap(), rowMapper);
     }
+
+
     public int insert(Role role) {
         SqlParameterSource params = new BeanPropertySqlParameterSource(role);
 //		return insertAction.executeAndReturnKey(params);

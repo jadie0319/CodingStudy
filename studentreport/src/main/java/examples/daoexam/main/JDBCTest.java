@@ -1,8 +1,8 @@
-package daoexam.main;
+package examples.daoexam.main;
 
-import daoexam.config.ApplicationConfig;
-import daoexam.dao.RoleDao;
-import daoexam.dto.Role;
+import examples.daoexam.config.ApplicationConfig;
+import examples.daoexam.dao.RoleDao;
+import examples.daoexam.dto.Role;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

@@ -1,4 +1,4 @@
-package daoexam.dto;
+package examples.daoexam.dto;
 
 public class Role {
 

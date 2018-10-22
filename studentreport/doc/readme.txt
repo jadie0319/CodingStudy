@@ -63,6 +63,7 @@ AOP가 적용된다.
 - 필드로 JdbcTemplate, SimpleJdbcInsert 가 선언된다.
 - 생성자에서 DataSource를 주입받아서 JdbcTemplate을 초기화한다.
 - 경우에 따라서는 생성자에서 insert할려고 SimpleJdbcInsert를 초기화 한다.
+
      public BoardDao(DataSource dataSource){
         this.jdbc = new NamedParameterJdbcTemplate(dataSource);
          this.insertAction = new SimpleJdbcInsert(dataSource)

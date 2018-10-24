@@ -23,6 +23,7 @@ public class BoardDao {
 
 
     public BoardDao(DataSource dataSource){
+        System.out.println("BoardDao()");
         this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 
         this.insertAction = new SimpleJdbcInsert(dataSource)

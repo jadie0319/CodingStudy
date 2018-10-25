@@ -15,11 +15,11 @@ public class DBConfig {
 
     private String driverClassName = "com.mysql.cj.jdbc.Driver";
 
-    private String url="jdbc:mysql://localhost:3306/fastcampus?serverTimezone=Asia/Seoul&useSSL=false";
+    private String url="jdbc:mysql://210.89.189.41:9900/oneweekboard?serverTimezone=Asia/Seoul&useSSL=false";
 
     private String username = "root";
 
-    private String password = "1234";
+    private String password = "R8Ha%y2f4!aai";
 
     @Bean
     public DataSource dataSource() {

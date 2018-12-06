@@ -1,0 +1,18 @@
+#server:
+#  port: ${port}
+#  context-path: /client1
+systemName: "ASystem"
+
+server:
+  port: 8090
+  context-path: /client1
+
+spring.h2.console:
+  enabled: true
+  path: /h2-console
+
+logging.level:
+  root: warn
+  org.springframework:
+    boot: info
+  com.acompany.asystem: debug
